@@ -1,0 +1,8 @@
+FRONT-END (React):
+sudo docker run --rm -d --name goals-frontend -p 3000:3000 -v "/home/varun/Laboratory/Docker/Sandbox/multi-01-starting-setup/frontend/src:/app/src" -it goals-react
+
+BACK-END (Node):
+ sudo docker run --rm -d --name goals-backend --network goals-net -p 3001:3001 -v logs:/app/logs -v "/home/varun/Laboratory/Docker/Sandbox/multi-01-starting-setup/backend:/app" -v /app/node_modules -e MONGODB_USERNAME=root -e MONGODB_PASSWORD=password goals-node
+
+ Mongo:
+sudo docker run --rm -d --name mongodb -v data:/data/db --network goals-net -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=password mongo
